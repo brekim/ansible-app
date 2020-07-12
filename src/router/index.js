@@ -1,6 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import BookList from "@/components/BookList.vue"
+import Login from "@/components/Login.vue"
+import Register from "@/components/Register.vue"
 
 const About = () => import("../views/About.vue");
 const Dashboard = () => import("../views/Dashboard.vue");
@@ -36,6 +39,21 @@ const routes = [
     path: "/quiz",
     name: "Quiz",
     component: Quiz,
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
+  },
+  {
+    path: "/booklist",
+    name: "BookList",
+    component: BookList,
   },
 ];
 

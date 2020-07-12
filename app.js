@@ -9,7 +9,7 @@ var app = express();
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/mevn-secure', { promiseLibrary: require('bluebird') })
-  .then(() =>  console.log('connection succesful'))
+  .then(() =>  console.log('connection successful'))
   .catch((err) => console.error(err));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -18,8 +18,12 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/books', express.static(path.join(__dirname, 'dist')));
 app.use('/book', book);
 
+var auth = require('./routes/auth');
+app.use('/api/auth', auth);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+  console.log("made it to 404")
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
@@ -36,6 +40,6 @@ app.use(function(err, req, res, next) {
     res.status(err.statusCode || 500).json(err);
 });
 
+
+
 module.exports = app;
-var auth = require('./routes/auth');
-app.use('/api/auth', auth);

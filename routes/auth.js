@@ -8,6 +8,7 @@ var router = express.Router();
 var User = require("../models/user");
 
 router.post('/register', function(req, res) {
+    console.log("made it to register")
     if (!req.body.username || !req.body.password) {
       res.json({success: false, msg: 'Please pass username and password.'});
     } else {
