@@ -1,4 +1,4 @@
-# ansible-app
+# ansible
 
 ## Project setup
 ```
